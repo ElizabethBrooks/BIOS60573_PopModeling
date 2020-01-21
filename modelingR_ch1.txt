@@ -1,0 +1,106 @@
+*Problems*
+#1.1. Geometric growth: Analyze the following data, relying on selected snippets of previous code.
+@(a) In the years 1996 through 2005, lily population sizes are N = 150, 100, 125, 200, 225, 150, 100, 175, 100, 150. Make a graph of population size versus time.
+@(b) Calculate R for each year; graph R vs. time.
+-> N_t = λ^t*N_0, where λ is the finite rate of increase. It is the per capita rate of growth of a population if the population is growing geometrically. We can also define a related term, the discrete growth factor, r_d, where λ = (1 + r_d).
+...> R = N_(t+1)/N_t = descrete exponential growth
+@(c) Calculate arithmetic and geometric average growth rates of this population.
+-> Arithmetic average (inappropriate) = ~R = R_1*R_2 . . . R_t
+-> Geometirc average (appripriate) = ~R = (R_1*R_2 . . . R_t)^(1/t)
+@(d) Based on the appropriate average growth rate, what would be the expected population size in 2025? What would the estimated population size be if you used the inappropriate mean? Do not use simulation for this.
+-> Projections based on the appropriate, geometric average R are less than when based on the inappropriate arithmetic average.
+-> The geometric average R is always less than the arethmetic average.
+...> Arithmetic average: R = (N_0*R)^(1/t) = 150*1.08^(1/30)
+...> Geometric average: R = (N_0*R)/t = (150*1.08)/30
+...> 150*1.08^30
+...> Geometric average has a growth rate of 1, which is also shown by the median
+@(d*) Given these data, develop simulations as above with the user-defined function, PopSim. Describe the distribution of projected population sizes for 2010.
+-> Exponentially growing populations, frequently show a lognormal distribution of abundances.
+...> Indeed, some say the "natural" unit of a population is log(N), rather than N.
+
+#1.2. Doubling Time
+@(a) Derive the formula for doubling time in a population with contiunous exponential growth.
+-> Continuous exponential growth: N_1 = N_0*(1 + r_d/n)^n
+-> Discrete growth increment: r_d = 1, since N_1 = N_0*(1 + 1)
+-> Doubling time: N_t = 2*N_0 => t = ln(2)/r
+...> t = ln(2)/r = ln(2)/1 = ln(2)
+-> Let N_t=2*N_0
+...> N_t = 2*N_0*e^(r*t) => t = ln(2*e)/(r*t)
+...> N_t => 2*N_0 = N_0*e^(r*t_double) => ln(2) = r*t_double => ln(2)/r = t_double
+@(b) What is the formula for tripling time?
+-> Discrete growth increment: r_d = 2, since N_1 = N_0*(1 + 2)
+-> Tripling time: N_t = 3*N_0 => t = ln(3)/r
+...> t = ln(3)/r = ln(3)/2
+-> Let N_t=2*N_0
+...> N_t = 3*N_0*e^(r*t) => t = ln(3*e)/(r*t)
+...> N_t => 3*N_0 = N_0*e^(r*t_triple) => ln(3) = r*t_triple => ln(3)/r = t_triple
+@(c) If we are modeling humans or E. coli, would a model of geometric, or exponential growth be better? Why?
+-> The growth rate factor λ is for populations with discrete generations, and r is for continuously reproducing populations.
+...> Exponential growth since both are observed to be continuously increasing in number, independant of density.
+@(d) If an E. coli population grew from 1000 cells to 2 × 10^9 cells in 6 h, what would its intrinsic rate of increase be? Its doubling time?
+-> The intrinsic rate of increase, r, is in units of inds*ind^(−1)*t^(−1).
+-> If we assume constant exponential and geometric growth, we can calculate r from data as easily as λ. Note that, so rearranging, we see that
+N_t = N_0*e^(rt)*ln(N_t) = ln(N_0)+r*t.
+-> In other words, r is the slope of the linear relation between ln (N_t) and time, and ln(N_0) is the y-intercept. If the data make sense to fit a straight regression line to log-transformed data, the slope of that line would be r. It also is plain that, λ = e^r => ln(λ) = r.
+-> N_0 = 1000
+-> N_t = 2*10^9
+-> t = 6h
+-> r = ln(λ) = ln(N_t/N_0)/t = ln((2*10^9)/1000)/6h
+...> N_t = 2*N_0*e^(r*t) => t = ln(2*e)/(r*t) => ln(2*e)/((N_t/N_0)*t) => ln(2*e)/(((2*10^9)/1000)*6h)
+-> t_double = ln(2)/2.418
+...> 2*e^9 = 1000*e^(r*6) => ln(2*e*6) = r*6 => r = 2.418
+
+#1.3. Human Population Growth
+@(a) There were about 630 million people on the planet in 1700, and 6.3 billion in 2003. What was the intrinsic rate of increase, r?
+-> N_0 = 630 million = 6.3*10^9
+-> N_t = 6.3 billion = 6.3*10^8
+-> t = 2003-1700 = 303 years
+-> r = ln(λ) = ln(N_t/N_0)/t = ln((6.3 billion)/630 million)/(303 years)
+-> N_t = N_0*e^(r*t) => d_N/d_t = r*N
+...> N_t = N_0*e^(r*t) => 6.3*10^9 = 6.3*10^6*e^(r*303) => 10 = e^(r*303) => ln(10)/303 = 303*r/303 => r = 0.0076
+@(b) Graph the model of human population size population size from 1700 to 2020.
+-> N_0 = 630 million = 6.3*10^9
+-> N_303 = 6.3 billion = 6.3*10^8
+-> r = ln((6.3 billion)/630 million)/(303 years)
+-> t = 2020-1700 = 320 years
+-> N_t = N_0*e^(r*t) => d_N/d_t = r*N
+...> years = 1700:2003; N_t = 6.3*e^(8*exp(0.0076*(0:length(years))))
+@(c) Add points on the graph indicating the population doublings from 1700 onward.
+-> We can create a function for this formula, and then evaluate it for different values of m and r. For m = 2, we refer to this as "doubling time." When we define the function and include arguments r and m, we also set a default value for m = 2.
+-> m.time <- function(r, m = 2) { log(m)/r }
+---> m.time <- function(m,Ni,Ne) { r <- Ne/Ni; log(m)/log(r) }
+-> Now we create a vector of r, and then use m.time to generate a vector of doubling times.
+-> rs <- c(0, 1, 2); m.time(rs)
+@(d*) What will prevent humans from outweighing the planet by the end of this century? What controls human population growth? Do these controls vary spatially across the planet?
+-> Resource limitations create density dependance
+-> Demography, how old and when reproduction occurs: birth rates are lower, a lot of the population has senessed and aren't reproducing anymore
+-> Children are considered to provide a detrimental role in a fammily: cotly parasites that don't provide the same benefits in a developing country as they do in a developed country
+...> Joel Cohen demography paper and video
+
+#1.4. R functions
+Find the R functions in Chapter 1. Demonstrate their uses.
+
+*Studying Notes*
+-> Note that changing the initial population size changes the intercept. It also changes the slope in linear space, but not in log-linear space. It changes the absolute rate of increase (N_2−N_1), but not the relative rate of increase (N_2/N_1).
+-> When λ > 1, the population grows, and when λ < 1 the population shrinks. When λ = 1, the population size does not change, because 1^t = 1 for all t.
+-> Thus, when reproduction occurs continuously, the population can begin to add to itself right away. Indeed, if a population grew in a discrete annual step N_(t+1) = N_t*(1 + r_d), the same r_d, divided up into many small increments, would result in a much larger increase.
+-> We call r the instantaneous per capita growth rate, or the intrinsic rate of increase.
+-> This means that when a population grows geometrically, with infinitely small time steps, we say the population grows exponentially, and we represent that as, Nt = N_0e^(r*t).
+-> What are the units for λ and r? As λ is a ratio of two population sizes, the units could be individuals/individual, thus rendering λ dimensionless. Similarly, we can view λ as the net number of individuals produced by individuals in the population such that the units are net new individuals per individual per time step, or inds*ind^(−1)*t^(−1).
+-> A nice feature of r as opposed to λ is that r can be used to scale easily among time units. Thus, r = 0.1*inds*ind^(−1)*year^(−1) becomes r = 0.1/365 = 0.00027*inds*ind^(−1)*day^(−1). You cannot do this with λ. If you would like to scale λ from one time unit to another, first convert it to r using logarithms, make the conversion, then convert back to λ.
+-> By doubling, we mean that Nt = 2N0. To get the time at which this occurs, we solve eq. (1.11) for t, 2*N_0 = N_0*e^(r*t) => 2 = e^(r*t) => ln(2) = r*t*ln(e) => t = ln(2)/r.
+---> m*N_0 = N_0*e^(r*t) => m = e^(r*t) => ln(m) = r*t*ln(e) => t = ln(m)/r.
+---> t = ln(m)/ln(λ)
+
+*Class Notes*
+#Why is theory useful:
+- Broad rule development
+- Improve understanding
+- Improve applications
+#Notation:
+- R = λ (with a hat) = N_t/N_(t+1)
+#Modeling terminology (parameters):
+- Pool = state variable
+- Flux in
+- Flux out
+- Net flux = Pool + Flux in - Flux out
