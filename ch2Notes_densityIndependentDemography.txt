@@ -1,0 +1,53 @@
+Density Independant Demography
+
+# Problem 2.1
+(a) Draw a life cycle graph of this population of goldenseal. Include the matrix elements associated with each transition (ee image).
+-> [row,col] = [j,i]
+-> If j >= i then Aji = Pji, else Aji = Fji
+--> F = above diagonal, P = below diagonal
+--> P along diagonal are stage persistance "transistions" (same stage feedback)
+--> P along sub-diagonal are direct/linear stage transitions
+-> S = stage, Pij = Aij, F6 = A16, F5 = A26
+--> Particularly for Fn, note that S6 = fertile, S1 = dormant seed, S2 = seedling
+-> TYPO: S1 does not have P11
+(b) Start with N = (0 10 10 10 10 10) and graph population dynamics for all stages for 10 years (see code).
+(c) Determine the stable stage distribution (see code).
+-> Code note: warning message of "In which.max(eigs.At[["values"]]) : imaginary parts discarded in coercion"
+-> Eigenanalysis is simply a method to transform a square matrix into independent, orthogonal, and useful chunks — the eigenvectors and their eigenvalues.
+-> The dominant eigenvector, w, is in the same position as the dominant eigenvalue.
+(d) Determine λ (see code). Explain what this tells us about the population, including any assumptions regarding the stable stage distribution.
+-> The first lambda (1.047113) is greater than 1, and so the population is growing
+-> When determining sensitivities, be careful of transitions the organism does not undergo (non-transition value elements)
+-> We see from this that the most important transition exhibited by the plant is s64, surviving from the fourth stage to the sixth stage
+(d) Determine the elasticities (see code). Which transition(s) are most influential in determining growth rate?
+-> The most influential transition is P44 (0.2814213) persistance in the medium stage, and the next most influential transition is P55 (0.1845841) persistance in the large stage
+-> Specifically, proportional changes to the persistence in this stage, neither regressing nor dying, are predicted to have the largest postive effect on the lambda of this population.
+-> There are two nice features of elasticities. First, impossible transitions have elasticities equal to zero, because we multiply by the projection matrix itself. Second, the elasticities sum to zero, and so it is easier to compare elasticities
+among differ matrices and different organisms.
+(e) Discuss which stages might be most suitable for harvesting; consider this question from both a financial and ecological perspective.
+-> The most suitible stages for harvesting are any stages other than the S4 and S5 stage, where persistance is favored for population growth (lambda)
+
+# Problem 2.2
+(a) Draw a life cycle graph of this loggerhead population (see image). Include the matrix elements associated with each transition.
+-> See above notes for Problem 2.1, a
+(b) Determine the stable stage distribution (see code).
+-> See above notes for Problem 2.1, c
+(c) Determine λ. Explain what this tells us about the population, including any assumptions regarding the stable stage distribution.
+-> See above notes for Problem 2.1, d (#1)
+-> Lambda is decreasing here, so intrinsice population growth is decreasing
+-> The first, second, and third stages have the largest SSD values
+(d) Determine the elasticities. Which transition(s) are most influential in determining growth rate?
+-> See above notes for Problem 2.1, d (#2)
+-> Most influential is P77 for maintentance of S7, followed by P44, P33, and P22
+(e) What is the predicted long-term relative abundance of all stages (see code)? What do we call this?
+-> After the first year, relative abundances decline (asymptotically) to near zero
+(f) If your interest is to maximize long-term growth rate, in which stage(s) should you invest protection measures? Which stages are least likely to enhance long-term growth rate, regardless of protective measures?
+-> The most important stages for consideration for protective measures (and growth rate) are S7, S4, S3, and S2
+--> Note that impossible transitions have elasticities equal to zero (such as P66, P55, and F61(?))
+(g) Start with N = (0 10 10 10 10 10) and graph dynamics for all stages for 10 years (see code).
+
+# Class Notes
+-> SSD reached from geometric growth
+-> Eigenanalysis to study relationships of systems of equations at equilibrium
+-> Eigenvalues measure the rate of change of the orthogonal eigenvectors
+--> The first eigenvalue is lambda, finite population growth
