@@ -1,0 +1,120 @@
+* Parameters *
+Parameters of the continuous 2 species Lotka-Volterra competition model:
+• r_i
+Instantaneous rate of increase;
+ intrinsic rate of growth;
+ individuals produced per individual per unit time.
+• α_ii
+Intraspecific density dependence; intraspecific competition coefficient;
+ the negative effect of an individual of species i on its own growth rate.
+• α_ij
+Interspecific density dependence; interspecific competition coefficient;
+ the effect of interspecific competition; the negative effect that an individual of species j has on the growth rate of species i.
+• K_i
+1/α_ii ; carrying capacity of species i;
+ the population size obtainable by species i in the absence of species j.
+• α′_ij
+α_ij/α_ii ;
+ the relative importance of interspecific competition.
+• β_ij
+α_ij/α_jj ;
+ the invasion criterion for species i; the relative importance of interspecific competition; the importance of the effect of species j on species i relative to the effect of species j on itself; see sec. 5.3.5.
+
+* Chapter Summary *
+• We can represent species effects on each other in precisely the same way we represented their effects on themselves.
+• Considering only two species, species i can invade species j when the effect of species j on species i is less than its effect of species j on itself.
+• Two species coexist stably when their effects on each other are smaller than their effects on themselves.
+• The dominant eigenvalue of the Jacobian matrix (perturbation growth rate), and its negative inverse, return time, are useful mathematical definitions of stability.
+• Perturbation growth rate decreases as β_ij, β_ji decrease, and are either both less than one or both greater than 1 (β_ij = α_ij/α_jj).
+• The magnitude of perturbation growth rate increases with r.
+--> Rate of return to equilibrium
+--> Related to the return to the dominant eigenvalue
+--> Negative rates indicate increased strength in intraspecific competition (a_ii > a_ij)
+---> Leads to competative exclusion
+--> Positive rates indicate increased strength in interspecific competition (a_ij > a_ii)
+
+* Problems *
+** 5.1 Basics **
+Let α_11 = α_22 = 0.1, α_12 = 0.05, α_21 = 0.01
+(a) Determine (N_1)^∗, (N_2)^∗, K_1, K_2
+-> See code
+(b) Draw (by hand, or in R) the ZNGIs (zero net growth isoclines); include arrows that indicate trajectories, and label the axes.
+-> See code
+(c) Select other values for the α and repeat (a) and (b); swap your answers with a friend, and check each other’s work.
+-> See code
+(d) Start with equilibria for competing species, and show algebraically that when interspecific competition is nonexistent, species reach their carrying cappacities.
+-> See equations 5.10 to 5.13
+-> We can confirm that as interspecific competition intensity falls to zero (α_12 = α_21 = 0), each species reaches its own carrying capacity. That is, when putative competitors occupy sufficiently different niches and no longer compete, then they both reach their own carrying capacities.
+
+** 5.2 **
+Derive the expression for (N_1)^∗/(N_2)^∗
+-> See equations 5.12 and 5.13
+-> We see that the α determine completely (N_1)^∗ and (N_2)^∗
+-> Note that this is not true for Lotka-Volterra systems with more than two species; such systems also depend on r_i
+
+** 5.3 **
+Show the derivations of the partial derivatives of dN_2/dt, with respect to N_2 and to N_1; begin with eq. 5.6
+-> See equation 5.6
+
+** 5.4 Total community size **
+Assume for convenience that α_11 = α_22 and α_12 = α_21, and let N_T = N_1 + N_2
+(a) Write (N_T)^∗ as a function of α_11, α_22, α_12, α_21
+-> See code
+(b) Describe in words how N_T varies as α_ij varies from α_ii → 0.
+(c) Graph (by hand, or in R) the relation between N_T versus α_ij. Let α ii = 0.01.
+-> See code
+
+** 5.5 **
+Interpret the Routh-Hurwitz criterion in terms of species relative inter- and intraspecific competitive abilities
+-> Note: In addition to the dominant eigenvalue, we need to consider the other eigenvalues. Table 5.2 provides a summary for interpreting eigenvalues with respect to the dynamics of the system. The eigenvalues depend upon elements of the Jacobian, and values calculated from the elements, notably the determinant, the trace, and the discriminant; a similar set of rules of system behavior can be based upon these values. For instance, the Routh-Hurwitz criterion for stability tells us that a two-species equilibrium will be locally stable, only if J_11 + J_22 < 0 and if J_11*J_22 − J_12*J_21 > 0. 
+-> The addative effects of intraspecific (density dependance) competition needs to be declining for a two-species equilibrium to be locally stable.
+-> And the difference between the joint effects of intra- compared to interspecific competition needs to be increasing. In other words, the total effect of interspecific competition needs to be less than the total effect of intraspecific competition.
+
+** 5.6 The Jacobian matrix **
+Here we turn words into math. Note that this is one way of making our assumptions very precise and clear. In each case below (a.–d.), (i) use algebraic inequalities between the βs and between the αs to show what the assumptions imply for the equalities and inequalities with respect to all αs, (ii) use these inequalities to simplify the Jacobian matrix (eq. (5.21) as much as possible, (iii) show algebraically how these (in)equalities determine the sign of each element
+of the Jacobian, and (iv) explain in words how the magnitudes of the Jacobian elements determine stability properties.
+(a) Assume that both species are functionally equivalent, and intraspecific competition is more intense than interspecific competition.
+-> a_11 = a_22, r_1 = r_2, a_21 = a_12
+-> a_12 < a_22, a_21 < a_11
+--> So, β_ij, β_ji < 1 (bowel)
+(b) Assume species are functionally equivalent and that each species has a greater impact on each other than they do on themselves.
+-> a_11 = a_22, r_1 = r_2, a_21 = a_12
+-> a_12 > a_22, a_21 > a_11
+--> So, β_ij, β_ji > 1 (saddle)
+(c) Assume species are functionally equivalent and interspecific competition is precisely equal to intraspecific competition.
+-> a_11 = a_22, r_1 = r_2, a_21 = a_12
+-> a_12 = a_22, a_21 = a_11
+--> So, β_ij = β_ji = 1 (plate)
+(d) Assume species have the same carrying capacity, and can coexist, but that species 1 is dominant.
+-> a_11 = a_22, r_1 = r_2, a_12 < a_22, a_21 < a_11
+-> a_12 > a_22, a_21 > a_11
+--> So, β_ij, β_ji < 1 (bowel)
+(e) Assume species 1 is the better competitor (note: this may have multiple interpretations).
+(f) Assume species 1 and 2 are equivalent (note: this may have multiple interpretations).
+-> Note: Just the way we used eigenanalysis to understand long term asymptotic behavior of demographic matrices, we can use eigenanalysis of the Jacobian to assess the long-term asymptotic behavior of these competing Lotka-Volterra populations.
+-> Note: Three interesting equilbria (5.3.5)
+--> Stable equilibrium: β_ij, β_ji < 1
+These criteria correspond to α_12 < α_22, α_21 < α_11 . As the relative strength of interspecific effects increases toward 1.0, λ_1 approaches zero, at which point the
+system would no longer have a single global point attractor. When β_ij, β_ji < 1, then both species can invade each other. We find that all of the eigenvalues of the Jacobian are negative and real.
+--> Unstable equilibria: β_ij, β_ji > 1
+These criteria correspond to α 12 > α 22 , α 21 > α 11 (Fig. 5.6). As we saw above,
+the Lotka-Volterra competition model has not only stable equilibria, but also unstable equilibria, when both populations are greater than zero. Although an unstable equilibrium cannot persist, β_ij , β_ji > 1 creates interesting and probably important dynamics. One of the results is referred to as founder control, where either species can colonize a patch, and whichever species gets there first (i.e. the founder) can resist any invader. Another interesting phenomenon is the saddle itself; this unstable equilibrium is an attractor-repeller, that is, it attracts from some directions and repels from others. This implies that the final outcome of dynamics may be difficult to predict from initial trajectories.
+--> Neutral equilibria: β_ij = β_ji = 1
+What happens when the inter- and intraspecific effects of each species are equal? This puts the populations on a knife’s edge, between an unstable saddle and a stable attractor. Let’s think first about a geometric interpretation, where we shift between a bowl, representing a stable attractor, and a saddle, representing what we call a neutral saddle. Imagine that we begin with a stable attractor, represented by a bowl, where α_ij < α_ii . We drop a ball in a bowl, and the bowl rolls to the bottom — the global attractor. As we increase the interspecific competition coefficients, α_ij → α_ii , we are pressing down on just two points on opposite sides of the bowl. Our hands push down on two opposite sides, until the bowl is flat in one direction, but has two remaining sides that slope downward. Perhaps you think this looks like
+a taco shell? The same shape is easily replicated by just picking up a piece of paper by opposite edges, letting it sag in the middle. This is the neutral saddle.
+--> What is most important, however, is not the particular eigenvalues, but rather their sign, and how they vary with α_12 and α_21, and the resulting stability properties and trajectories.
+-> Note: Interpretation of eigenvalues of Jacobian matrices (Table 5.2)
+--> Eigenvalues
+All real parts < 0
+Some real parts < 0
+No real parts < 0
+Real parts = 0
+Imaginary parts absent
+Imaginary parts present (±ωi)
+--> Interpretation
+Globally Stable Point (Point Attractor)
+Saddle (Attractor-Repellor)
+Globally Unstable Point (Point Repellor)
+Neutral
+No oscillations
+Oscillations with period 2π/ω
