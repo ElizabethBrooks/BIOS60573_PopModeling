@@ -1,0 +1,62 @@
+* Parameters *
+Parameters of the continuous 2 species Lotka-Volterra competition model:
+• r_i
+Instantaneous rate of increase;
+ intrinsic rate of growth;
+ individuals produced per individual per unit time.
+• α_ii
+Intraspecific density dependence; intraspecific competition coefficient;
+ the negative effect of an individual of species i on its own growth rate.
+• α_ij
+Interspecific density dependence; interspecific competition coefficient;
+ the effect of interspecific competition; the negative effect that an individual of species j has on the growth rate of species i.
+• K_i
+1/α_ii ; carrying capacity of species i;
+ the population size obtainable by species i in the absence of species j.
+• α′_ij
+α_ij/α_ii ;
+ the relative importance of interspecific competition.
+• β_ij
+α_ij/α_jj ;
+ the invasion criterion for species i; the relative importance of interspecific competition; the importance of the effect of species j on species i relative to the effect of species j on itself; see sec. 5.3.5.
+
+* Chapter Summary *
+• We can represent species effects on each other in precisely the same way we represented their effects on themselves.
+• Considering only two species, species i can invade species j when the effect of species j on species i is less than its effect of species j on itself.
+• Two species coexist stably when their effects on each other are smaller than their effects on themselves.
+• The dominant eigenvalue of the Jacobian matrix (perturbation growth rate), and its negative inverse, return time, are useful mathematical definitions of stability.
+• Perturbation growth rate decreases as β_ij, β_ji decrease, and are either both less than one or both greater than 1 (β_ij = α_ij/α_jj).
+• The magnitude of perturbation growth rate increases with r.
+
+* Problems *
+** 5.1 Basics **
+Let α_11 = α_22 = 0.1, α_12 = 0.05, α_21 = 0.01
+(a) Determine (N_1)^∗, (N_2)^∗, K_1, K_2
+(b) Draw (by hand, or in R) the ZNGIs (zero net growth isoclines); include arrows that indicate trajectories, and label the axes.
+(c) Select other values for the α and repeat (a) and (b); swap your answers with a friend, and check each other’s work.
+(d) Start with equilibria for competing species, and show algebraically that when interspecific competition is nonexistent, species reach their carrying cappacities.
+
+** 5.2 **
+Derive the expression for (N_1)^∗/(N_2)^∗
+
+** 5.3 **
+Show the derivations of the partial derivatives of dN_2/dt, with respect to N_2 and to N_1; begin with eq. 5.6
+
+** 5.4 Total community size **
+Assume for convenience that α_11 = α_22 and α_12 = α_21, and let N_T = N_1 + N_2
+(a) Write (N_T)^∗ as a function of α_11, α_22, α_12, α_21
+(b) Describe in words how N_T varies as α_ij varies from α_ii → 0.
+(c) Graph (by hand, or in R) the relation between N_T versus α_ij. Let α ii = 0.01.
+
+** 5.5 **
+Interpret the Routh-Hurwitz criterion in terms of species relative inter- and intraspecific competitive abilities
+
+** 5.6 The Jacobian matrix **
+Here we turn words into math. Note that this is one way of making our assumptions very precise and clear. In each case below (a.–d.), (i) use algebraic inequalities between the βs and between the αs to show what the assumptions imply for the equalities and inequalities with respect to all αs, (ii) use these inequalities to simplify the Jacobian matrix (eq. (5.21) as much as possible, (iii) show algebraically how these (in)equalities determine the sign of each element
+of the Jacobian, and (iv) explain in words how the magnitudes of the Jacobian elements determine stability properties.
+(a) Assume that both species are functionally equivalent, and intraspecific competition is more intense than interspecific competition.
+(b) Assume species are functionally equivalent and that each species has a greater impact on each other than they do on themselves.
+(c) Assume species are functionally equivalent and interspecific competition is precisely equal to intraspecific competition.
+(d) Assume species have the same carrying capacity, and can coexist, but that species 1 is dominant.
+(e) Assume species 1 is the better competitor (note: this may have multiple interpretations).
+(f) Assume species 1 and 2 are equivalent (note: this may have multiple interpretations).
