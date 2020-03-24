@@ -1,0 +1,56 @@
+-Combined answers
+6.1. Lotka–Volterra Predator–prey Model
+(a) Write down the two species Lotka–Volterra predator–prey model.
+The prey equation of the model is eq. 6.1 of the chapter, and the predator is eq. 6.2 (pg. 162):
+dH/dt = bH - aPH
+dP/dt = eaPH - sP
+
+(b) Describe how Fig. 6.4 illustrates neutral oscillatory dynamics.
+Fig. 6.4 illustrates neutral oscillatory dynamics since neither of the populations reach extinction or a stable point. It is also apparent that initial conditions do not change this. Populations cycle on a trajectory that periodically pass through initial abundances, which indicates constant oscillations. This is due to the fact that peaks of predator populations tend to lag behind prey peaks. Additionally, prey populations generally have higher abundances, in order to compensate for inefficiencies in predator nutrient conversion.
+
+(c) What are the units of the predator–prey model coefficients b, a, e, and s? How do we interpret them?
+-> In the prey equation, b is a parameter of the growth term bH. The units of b are the number of prey produced per prey, which is the instantaneous growth rate of the population.
+-> a is a parameter of both the loss term of the prey equation, and the growth term of the predator equation. It is the rate of interactions between the predator and prey, or attack rate. The units of a are the number of prey killed per predator per prey (aPH), and is therefore, dependent on both predator (P) and prey densities (H). Furthermore, a single predator kills prey at a rate of aH, following a type I functional response.
+-> The growth term of the predator equation (eaPH) is also described by the efficiency parameter e. This is the rate at which predator body-mass or offspring are produced from assimilating the nutrients of killed prey. Therefore, the units of e are the numbers of predators per number of prey killed.
+-> In the predator equation, s is a parameter of the loss term sP. Similar to the per capita growth rate of prey (b), the coefficient s is described a constant proportional rate. It is the rate at which predators die, and describes the exponential decline of predator numbers in the absence of prey.
+
+
+-Elizabeth Brooks
+# 6.1. Lotka–Volterra Predator–prey Model #
+(a) Write down the two species Lotka–Volterra predator–prey model.
+-> The prey equation is 6.1 and the predator is 6.2 (page 162)
+
+(b) Describe how Fig. 6.4 illustrates neutral oscillatory dynamics.
+-> 
+
+(c) What are the units of the predator–prey model coefficients b, a, e, and s?
+How do we interpret them?
+-> In the prey equation, b is a parameter of the growth term bH. The units of b are the number of prey produced per prey, which is the per capita rate of growth of the population.
+-> a is a parameter of both the loss term of the prey equaion, and the growth term of the predator equation. It is the rate of interactions between the predator and prey, or attack rate. The units of a are the number of prey killed per predator per prey (aPH), and is therefore, depandant on the predator (P) and prey densities (H). Furthermore, a single predator kills prey at a rate of aH, following a type I functional response.
+-> The growth term of the predator equation (eaPH) is also described by the efficiency parameter e. This is the rate at which predator body-mass or offspring are produced from assimilating the nutrients of killed prey. Therefore, the units of e are the numbers of predators per number of prey killed.
+-> In the predator equation, s is a parameter of the loss term sP. Similar to the per capita growth rate of prey (b), the coefficient s described a constant proportional rate. It is the rate at which predators die, and is a constant per capita rate in the absence of prey.
+
+
+-Bret Coggins
+#6.1. Lotka-Volterra Predator-prey Model
+(a) Write down the two species Lotka-Volterra 
+    predator-prey model.
+    
+dH/dt = bH - aPH
+dP/dt = eaPH - sP
+    
+(b) Describe how Fig. 6.4 illustrates neutral 
+    oscillatory dynamics.
+
+the dynamics are neutral because nothing goes extinct nor does it reach a stable point, and initial conditions do not change this.
+Basically, the oscillations are constant and never dampen or explode. 
+    
+(c) What are the units of the predator-prey model 
+    coefficients b, a, e, and s?
+    How do we interpret them?
+      
+    b: number of herbivores produced per herbivore, the instantaneous growth rate of the population
+    a: number of herbivores killed per predator per herbivore, if a predator and prey encounter a prey dies at this instantaneous rate
+    e: number of predators per number of herbivores killed, the conversion efficiency of killed prey into new predators
+    s: number of predators that die in the absence of prey, without prey around predators die at a constant proportional rate creating exponential decay of the predator population
+    
