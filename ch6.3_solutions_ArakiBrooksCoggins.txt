@@ -1,0 +1,95 @@
+##CH 6.3 Effects of dispersion on host–parasitoid dynamics
+##a) Demonstrate the effects of aggregation on host-parasitoid dynamics.Specifically, vary the magnitude of k to find the effects on stability.
+# overdispersion parameter k = size
+# k>10 indicates randomness (Poisson-like dist)
+# k<2 indicates aggregation
+# smaller k causes greater variance and results in a higher proportion of 0s
+
+# Stability of the host-parasitoid model with aggregation
+#give expressions for and partial derivatives of functions
+F.H <- expression(R * H * (1 + a * P/k)^-k - H)
+F.P <- expression(H - H * (1+a*P/k)^-k-P)
+F.H.H <- D(F.H, "H"); F.H.P <- D(F.H, "P")
+F.P.H <- D(F.P, "H"); F.P.P <- D(F.P, "P")
+#specify a sequence of ks, for each k find equilibria, evaluate Jacobian matrices, return eigenvalues
+k<- 10^seq(-1, 1, by=0.01); R <- 3; a<- 0.005
+HPeigs <- sapply(k, function(ki){
+  k <- ki
+  P <- k * (R^(1/k) -1)/a
+  H <- P * R/(R-1)
+  jac <- matrix(c(eval(F.H.H), eval(F.H.P), eval(F.P.H), 
+                  eval(F.P.P)), nrow = 2, byrow = TRUE)
+  eigen(jac)[["values"]]
+})
+#plot eigenvalue with greatest absolute magnitude and retain sign of the real park lambda vs k
+modmaxs <- apply(HPeigs, 2, function(lambdas) {
+  i <- which.max(Mod(lambdas))
+  sign(Re(lambdas[i])) * Mod(lambdas[i])
+})
+plot(k, modmaxs, type = 'l', ylab = quote("Stability " * (lambda[1])))
+abline(h = -1, lty = 3)
+
+#Evaluate modulus (magnitude) of eigenvalues of a Jacobian matrix for a discrete model
+#set up unit circle
+th <- seq(-pi, pi, len=100)
+z <- exp((0+1i) * th)
+#plot circle and add eigenvalues for smallest k
+par(pty = "s")
+plot(z, type = "l")
+points(0,0,pch=3)
+points(HPeigs[, 100])
+arrows(x0=c(0,0), y0=c(0,0), x1 = Re(HPeigs[, 100]), y1=Im(HPeigs[, 100]))
+#length of arrows are the moduli |lambda|
+
+
+##b) Demonstrate the effects of a on stability.
+#a = area of discovery; area searched during a parasitoid's lifetime
+#give expressions for and partial derivatives of functions
+F.H <- expression(R * H * (1 + a * P/k)^-k - H)
+F.P <- expression(H - H * (1+a*P/k)^-k-P)
+F.H.H <- D(F.H, "H"); F.H.P <- D(F.H, "P")
+F.P.H <- D(F.P, "H"); F.P.P <- D(F.P, "P")
+#specify a sequence of a values, for each a find equilibria, evaluate Jacobian, return eigenvalues
+k<- 1; R <- 3; a<- 10^seq(0, 0.01, by=0.0001)
+HPeigs <- sapply(a, function(ai){
+  a <- ai
+  P <- k * (R^(1/k) -1)/a
+  H <- P * R/(R-1)
+  jac <- matrix(c(eval(F.H.H), eval(F.H.P), eval(F.P.H), 
+                  eval(F.P.P)), nrow = 2, byrow = TRUE)
+  jac
+  eigen(jac)[["values"]]
+})
+#plot eigenvalue with greatest absolute magnitude and retain sign of the real park lambda vs k
+modmaxs <- apply(HPeigs, 2, function(lambdas) {
+  i <- which.max(Mod(lambdas))
+  sign(Re(lambdas[i])) * Mod(lambdas[i])
+})
+plot(a, modmaxs, type = 'l', ylab = quote("Stability " * (lambda[1])))
+abline(h = -1, lty = 3)
+
+
+##c) Demonstrate the effects of R on stability 
+#give expressions for and partial derivatives of functions
+F.H <- expression(R * H * (1 + a * P/k)^-k - H)
+F.P <- expression(H - H * (1+a*P/k)^-k-P)
+F.H.H <- D(F.H, "H"); F.H.P <- D(F.H, "P")
+F.P.H <- D(F.P, "H"); F.P.P <- D(F.P, "P")
+#specify a sequence of a values, for each a find equilibria, evaluate Jacobian, return eigenvalues
+k<- 1; R <- seq(0, 6, by=0.1); a<- 0.005
+HPeigs <- sapply(R, function(Ri){
+  R <- Ri
+  P <- k * (R^(1/k) -1)/a
+  H <- P * R/(R-1)
+  jac <- matrix(c(eval(F.H.H), eval(F.H.P), eval(F.P.H), 
+                  eval(F.P.P)), nrow = 2, byrow = TRUE)
+  jac
+  eigen(jac)[["values"]]
+})
+#plot eigenvalue with greatest absolute magnitude and retain sign of the real park lambda vs k
+modmaxs <- apply(HPeigs, 2, function(lambdas) {
+  i <- which.max(Mod(lambdas))
+  sign(Re(lambdas[i])) * Mod(lambdas[i])
+})
+plot(R, modmaxs, type = 'l', ylab = quote("Stability " * (lambda[1])))
+abline(h = -1, lty = 3)

@@ -1,0 +1,59 @@
+##6.2. Rosenzweig-MacArthur Predator-prey Model
+##(a) Write down the two species Rosenzweig-MacArthur predator-prey model.
+   
+dH/dt = bH(1 - alpha*H) - w(H/(D+H))P
+dP/dt = ew(H/(D+H))P - sP
+   
+
+##(b) How do we interpret b, K, w, D, e and s? What are their units?
+ 
+K: number of herbivores/prey, here K is the carrying capacity of prey if they are not managed by predators, it is also the x-intercept of the prey isocline.
+w: number of herbivores killed per predator, the maximum rate of capture not counting satiation or handling time.
+D: unitless, the half saturation constant of the predators which lowers maximum capture rate w, as H approaches 0, w/D is the same as "a" in the LV model.
+all other units are the same as 6.1.c.
+
+
+##(c) What is the value of the functional response when H = D? Explain how this result provides the meaning behind the name we use for D, the half saturation constant.
+   
+lim(H->D)W(D/(2D)) = w/2
+It is called the half saturation constant because as H approaches D, only half of the maximum capture rate can be achieved.
+
+
+##(d) For each point A-D in Fig. 6.5, determine whether the growth rate for the predator and the herbivore are zero, positive, or negative.
+
+overall: predator: positive growth to the right of the predator isocline negative growth to the left of the predator isocline, no growth when the steady state equilibrium is reached (where the phase plot spirals to).
+Overall: herbivore: positive growth below the prey isocline negative growth above the prey isocline no growth at the steady state equilibrium or x intercept of the prey isocline.
+a: p: negative H: negative
+b: p: negative H: positive
+c: p: positive H: positive
+d: p: positive H: negative
+  
+
+##(e) In what way is the Rosenzweig-MacArthur predator isocline (Fig. 6.5) similar to the Lotka-Volterra model? It also differs from the Lotka-Volterra isocline- explain the ecological interpretation of D in the type II functional response and its consequence for this isocline.
+   
+The predator isocline is still a constant response (vertical line) to prey abundance. The isocline differs because it incorporates handling time and saturation in the model. This is independent of prey density, so even if there is a huge amount of prey, the predator can become self limiting through either handling time or becoming full.
+  
+
+##(f) Explain the interpretation of real and imaginary parts of the eigenvalues for this paramterization of the Rosenzweig-MacArthur predator-prey model.
+
+The sign of the dominant eigenvalue determines the stability, where a negative value is a stable attractor, and a positive value is an unstable repellor, and zero is neutral. The presence of imaginary parts means oscillations are occuring. So a positive + imaginary value would be unstable intensifying oscillation negative + imaginary would be dampened oscillations to a stable point neutral + imaginary, would cycle around an attractor but never reach it
+   
+   
+##(g) In what ways does Fig. 6.6a match the interpretation of the eigenanalysis of this model?
+
+The figure represents an unstable repellor with outward oscillations. So, it is a positive eigenvalue with imaginary parts.
+
+
+##(h) Examine the prey isoclines in Fig. 6.6a. How you can tell what the carrying capacities of the prey are?
+     
+The carrying capacity of the prey populations are when the prey isocline intercept the x-axis.      
+   
+
+##(i) What do the above eigenanalyses tell us about how the stability of the predator-prey interaction varies with the carrying capacity of the prey?
+     
+Ks that are very small and high will make the system increasingly unstable.
+   
+
+##(j) Consult Fig. 6.6a. What is the relation between the carrying capacity of the prey and the magnitude of the oscillations? What is the relation between the carrying capacity of the prey and the minimum population size? What does this interpretation imply about natural ecosystems?
+     
+As K becomes very high, the magnitude of oscillations increases. Similarly, if K is very small the oscillations will also increase in magnitude, and almost guarantees extinction. This all implies that reaching a stable outcome without a local extinction in just a two-species model is a rare outcome. Therefore, other parts of ecosystems are required to improve stability. 
