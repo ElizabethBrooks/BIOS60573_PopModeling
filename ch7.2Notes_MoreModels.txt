@@ -1,0 +1,30 @@
+# 7.2. More Models
+(c) Test the effects of intraspecific negative density dependence. Vary the average magnitude of negative density dependence.
+-> See code file.
+-> Code notes:
+#First, we’ll create a matrix that represents qualitatively the simplest longest food chain
+#Note that this matrix indicates a negative effect of the basal species on itself,
+# large negative effects (−10) of each consumer on its prey, and small positive
+# effects of each prey on its consumer.
+Aq = matrix(c(-1, -10, 0, 0, 0.1, 0, -10, 0, 0, 0.1, 0, -10, 0, 0, 0.1, 0), nrow = 4, byrow = TRUE)
+#For subsequent calculations, it is convenient to to find out from the matrix
+# itself how big the matrix is, that is, how many species, S , are in the web.
+S <- nrow(Aq)
+#Next, we create a random realization of this matrix by multiplying each element times a unique 
+# random number between zero and 1. For this matrix, that requires 4^2 unique numbers.
+M <- Aq * runif(S^2)
+#Next we perform eigenanalysis on it, retaining the eigenvalues.
+eM <- eigen(M)[["values"]]
+#Pimm and Lawton tested whether the dominant eigenvalue was greater than
+# 0 (unstable) and if less than zero, they calculated return time. We will simply
+# record the dominant eigenvalue (the maximum of the real parts of the eigenvalues).
+deM <- max(Re(eM))
+#Given the stabilizing effect of the intraspecific negative density dependence, we
+# will hang on to that as well.
+intraNDD <- sqrt(sum(diag(M)^2)/S)
+#Given lessons from May’s work, we might also want to calculate the average
+# interaction strength, not including the intraspecific interactions. Here we set the
+# diagonal interactions equal to zero, square the remaining elements, find their
+# average, and take the square root.
+diag(M) <- 0
+IS <- sqrt(sum(M^2)/(S * (S - 1)))
