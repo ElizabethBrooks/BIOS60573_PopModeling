@@ -1,0 +1,29 @@
+#9.1
+c -> base colonization rate of habitat by two co-occurring species. determines how quickly free space is occupied and can modify transitions in habitat space.
+
+alpha -> relative colonization rate of the worse competitor. used mostly to simulate a tradeoff in colonization vs competitive ability.
+
+m -> mortality or disturbance rate. since species can die, this allows backwards transitions of habitat space.
+
+gamma -> the rate of competitive exclusion of species 1 (how fast a patch is depleted by the better competitor). Has a major effect on what habitat transitions can happen.
+
+#9.2.a
+For a pure competition-colonization model, gamma should be very large (>5). doing so ensures complete competitive exclusion of the early colonizer within a year. Doing so ensures no free sites remain and all patches are either early or resistant and most are resistant until eventually the early colonizer is gone. 
+
+Alpha should be some value greater than 1 to ensure one species colonizes faster than the other. Adding habitat destruction might lead to the extinction of the better competitor, where higher disturbance/mortality might help it win faster.
+
+#9.2.b
+For a pure successional niche model, gamma should be low (<<1). Doing so allows a more gradual transition from mixed to resistant and allows the coexistance of the two species. Alpha should be adjusted to 1 (no difference in colonization rates) to simulate a pure successional niche. Species 1 will exist in early and mixed sites, and species 2 will exist in mixed, susceptible, and resistant sites.
+
+#9.3
+For the competition-colonization model, mixed and susceptible sites cannot exist, so the model dynamics are driven by the conversion of Free sites to either early or Resistant sites as well as transitions from early to resistant sites, which will eventually lead to predominantly resistant sites. A high m might allow a significant enough transition of resistant back to free sites to allow the persistence of early colonizers.
+
+For the successional niche model, all 5 states of habitat might exist, though susceptible sites will phase out at equilibrium because they will have either been replaced by mixed or susceptible sites. Here high mortality rates or habitat destruction will have less of a detrimental effect on competitive outcomes because flux in habitat states will be driven by the age of the habitat.
+
+#9.4
+If a system has high rates of competitive exclusion against a fast colonizer (a competition-colonization tradeoff), the early colonizer will be present only when it has much higher colonization rates and/or if mortality rates are high. At equilibrium, however, the better competitor will greatly limit or exclude altogehter the early successor because the final habitate states are only early or resistant.
+
+In the case of successional niches, species are more likely to coexist, especially if they colonize at similar rates. So here, different species will dominate in different ages of habitat, but will coexist at equilibrium because they will occupy some non-overlapping states as well as mixed states. 
+
+#9.5
+See code solution file.
