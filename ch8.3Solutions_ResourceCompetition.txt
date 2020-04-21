@@ -1,0 +1,13 @@
+## 8.3. Resource competition ##
+# (a) Explain hysteresis.
+Hysteresis is the set of alternate equilibria that arise as a result of gradual changes in the external environment. Competition for shared resources can result in alternate equilibria and multiple basins of attraction, similar to Lotka-Volterra competition. In the case of hysteresis, however, alternate stable states can occur when species indirectly compete and change the availability of resources. Therefore, hysteresis is the set of equilibria associated with a change in the resource composition of a system due to an environmental driver.
+
+# (b) Alter the equation for submerged plants to represent the hypothetical situation in which submerged plants get most or all of their resources from the water column. Explain your rationale, and experiment with some simulations. What would you predict regarding (i) coexistence and (ii) hysteresis? How could you test your predictions?
+dF/dt = rf*F*(n/(n+hf))*(1/(1+af*F))-lf*F
+dS/dt = rs*S*(n/(n+hs))*1-ls*S
+
+In the above equiations for floating and submerged plants, the submerged plant equation has been adjusted such that submerged plants get all of their resources from the water column. Water column nitrogen is the only limitation on the submerged plant population. Thus, the amount of light that penetrates the water column, the shade cast by floating plants, and self-shading of submerged plants no longer limits the growth of the submerged plant population.
+
+Regarding coexsistence, I would predict that the submerged plant population would outcompete the floating plants as eutrophication increases nitrogen concentrations. This is because light is not a factor that is limiting the submerged plants, and at high nitrogen conentrations the submerged plants are not limited in growth. On the other hand, floating plant growth is limited by light at high nitrogen concentrations. At low nitrogen concentrations, floating plants are able to rely on the light resource, while submerged plants are severly impacted by the lack of their primary resource. From simulations, it appears that the submerged plant population grows exponentially over time because they are never limited by water column nitrogen levels.
+
+Now regarding hysteresis, I would predict that the gradual changes in the nitrogen concentrations would result in abrut changes in plant population densities. From the simulations, it appears that small changes in nitrogen concentrations can result in a dramatic increase in the density of the submerged plant population. However, the outcome of the indirect competition for the nitrogen resource does not appear to be dependant on priority effects at intermediate nitrogen concentrations.

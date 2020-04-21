@@ -1,0 +1,44 @@
+# 8.1 General
+Compare and contrast the terms “alternate stable states” and “multiple basins of attraction.” Define each and explain how the terms are similar and how they differ.
+
+Alternate stable states are a set of 2 or more possible stable attractors that can occur given single set of the same external environmental conditions. 
+
+Multiple basins of attraction are a dynamic system of abundances where attractors may be hard to directly observe because of complex dynamics with long return times. 
+
+These systems are often depicted as topographic maps where attractors are peaks and repellers are valleys. Alternate stable states can be thought of as simpler but more strictly defined examples of multiple basins of attraction where fixed stable states exist and are reachable after perturbation and where communities rapidly try to reach these stable states. More complicated dynamics in MBA evolution of traits moving attractors over time or saddles in competition models, will behave similarly, but probably more loosely than assumed under ASE condition. Regardless of the stringency of definition, initial conditions drive outcomes in these topographies.
+
+# 8.2 Lotka–Volterra competition
+(a) Explain what we learn from Figure 8.2 regarding how growth rate, initial abundance and intraspecific density dependence (or carrying capacity) influence outcomes. Specifically, which of these best predicted the final outcome of competition? Which was worst? Explain.
+
+Regarding growth rate first, we see from Figure 8.2 that the species with the intermediate growth rate displaces the other two species. Furthremore, species with intermediate levels of intraspecific density dependance outcompeted the other species. Finally, differences in initial species abundances yielded in unpredictable results and was not indicative of outcome.
+
+(b) Explain in non-mathematical terms why strong interference allows for priority effects.
+
+Strong interference allows for priority effects because the species that is able to establish positive growth first is able to outcompete and exclude other species. The effects of the interference competition are direct, and species have larger negative competative effects on others than themselves.
+
+(c) Create a simulation to more rigorously test the conclusions you drew in part (a) above.
+
+See code file.
+
+# 8.3. Resource competition ##
+(a) Explain hysteresis.
+Hysteresis is the set of alternate equilibria that arise as a result of gradual changes in the external environment. Competition for shared resources can result in alternate equilibria and multiple basins of attraction, similar to Lotka-Volterra competition. In the case of hysteresis, however, alternate stable states can occur when species indirectly compete and change the availability of resources. Therefore, hysteresis is the set of equilibria associated with a change in the resource composition of a system due to an environmental driver.
+
+(b) Alter the equation for submerged plants to represent the hypothetical situation in which submerged plants get most or all of their resources from the water column. Explain your rationale, and experiment with some simulations. What would you predict regarding (i) coexistence and (ii) hysteresis? How could you test your predictions?
+dF/dt = rf*F*(n/(n+hf))*(1/(1+af*F))-lf*F
+dS/dt = rs*S*(n/(n+hs))*1-ls*S
+
+In the above equiations for floating and submerged plants, the submerged plant equation has been adjusted such that submerged plants get all of their resources from the water column. Water column nitrogen is the only limitation on the submerged plant population. Thus, the amount of light that penetrates the water column, the shade cast by floating plants, and self-shading of submerged plants no longer limits the growth of the submerged plant population (see code file).
+
+Regarding coexsistence, I would predict that the submerged plant population would outcompete the floating plants as eutrophication increases nitrogen concentrations. This is because light is not a factor that is limiting the submerged plants, and at high nitrogen conentrations the submerged plants are not limited in growth. On the other hand, floating plant growth is limited by light at high nitrogen concentrations. At low nitrogen concentrations, floating plants are able to rely on the light resource, while submerged plants are severly impacted by the lack of their primary resource. From simulations, it appears that the submerged plant population grows exponentially over time because they are never limited by water column nitrogen levels.
+
+Now regarding hysteresis, I would predict that the gradual changes in the nitrogen concentrations would result in abrut changes in plant population densities. From the simulations, it appears that small changes in nitrogen concentrations can result in a dramatic increase in the density of the submerged plant population. However, the outcome of the indirect competition for the nitrogen resource does not appear to be dependant on priority effects at intermediate nitrogen concentrations.
+
+# 8.4 Intraguild Predation
+(a) Use Figure 8.8 to explain how initial abundances influence outcomes. Are there initial conditions that seem to result in all species coexisting? Are there things we should do to check this?
+
+In intraguild predation, initial conditions determine the winner of competition and alone do not allow coexistence. In order to achieve stable coexistence, the worse competitor must be the predator and its attack rate and conversion efficiency will determine the outcome more than the starting conditions. 
+
+(b) Explain how high attack rates and low conversion efficiencies by the top predator create alternate stable states.
+
+High attack rates and low conversion efficiency do not promote stable coexistence because the predator would have too high of a negative impact on the prey and too little of a positive effect of the prey on the predator. Conversely, low attack rates and high conversion efficiency allow for coexistence. 

@@ -1,0 +1,16 @@
+# 8.2 Lotka–Volterra competition
+(a) Explain what we learn from Figure 8.2 regarding how growth rate, initial abundance and intraspecific density dependence (or carrying capacity) influence outcomes. Specifically, which of these best predicted the final outcome of competition? Which was worst? Explain.
+
+Regarding growth rate first, we see from Figure 8.2 that the species with the intermediate growth rate displaces the other two species. Furthremore, species with intermediate levels of intraspecific density dependance outcompeted the other species. Finally, differences in initial species abundances yielded in unpredictable results and was not indicative of outcome.
+
+(b) Explain in non-mathematical terms why strong interference allows for priority effects.
+
+Strong interference allows for priority effects because the species that is able to establish positive growth first is able to outcompete and exclude other species. The effects of the interference competition are direct, and species have larger negative competative effects on others than themselves.
+
+(c) Create a simulation to more rigorously test the conclusions you drew in part (a) above.
+
+See code file.
+
+# Notes
+-> Note that when they start at equal abundances (Fig. 8.2), the species with the intermediate carrying capacity and intermediate r displaces the other two species. However, note also that (i) with a little stochasticity in initial conditions (slight variation in N i at t = 0), this simple model generates unpredictable outcomes, and (ii) initial abundance does not determine everything.
+--> It is critical to realize that this is occurring in part because species have larger negative competitive effects on others than they have on themselves. In this case the effects are direct, because the model is Lotka–Volterra competition.

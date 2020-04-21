@@ -1,0 +1,37 @@
+## 8.3. Resource competition ##
+# (a) Explain hysteresis.
+Hysteresis is the set of alternate equilibria that arise as a result of gradual changes in the external environment. Competition for shared resources can result in alternate equilibria and multiple basins of attraction, similar to Lotka-Volterra competition. In the case of hysteresis, however, alternate stable states can occur when species indirectly compete and change the availability of resources. Therefore, hysteresis is the set of equilibria associated with a change in the resource composition of a system due to an environmental driver.
+
+# 8.3 (a) Notes
+-> Different abundances may also arise from the gradual change and return of an environmental factor, and the resulting set of alternate equilibria is known as hysteresis, and below we examine a case related to resource competition.
+-> Having a larger negative effect on your competitor than on yourself may not be too unusual. Examples that come immediately to mind are cases where species compete preemptively for space (territories, or substrate surface) or for a resource with a unidirectional flow (drifting prey or particles in a stream, or light coming down on a forest canopy), then one species may gain the upper hand by acquiring a large proportion of resources first, that is, preempting
+resources.
+--> This is a priority effect.
+-> It is critical to realize that this is occurring in part because species have larger negative competitive effects on others than they have on themselves. In this case the effects are direct, because the model is Lotka–Volterra competition. The effects may also be indirect, when species compete for more than one limiting resource. MacArthur showed, for instance, that when generalists and specialists compete so that not all resources are available to all species,
+alternate stable states occur.
+-> Above, we explored how simple Lotka–Volterra competition could result in unstable equilibria, causing saddles, and multiple basins of attraction. Here we take a look an example of how resource competition can do the same thing. Recall that resource competition is an indirect interaction, where species interact through shared resources. This particular example results in a type of MBA scenario, hysteresis, where gradual changes in the external environment result
+in abrupt and sometimes catastrophic changes in the biological system (Fig. 8.4).
+-> This is an excellent example of a system prone to hysteresis (Fig. 8.4). Gradual changes in an external driver (e.g., nitrogen runoff) cause catastrophic shifts in the internal system, because at intermediate levels of the driver, the internal system is influenced by priority effects. Hysteresis is often defined as a context-dependent response to an environmental driver.
+-> What a second! If we start at high floating plant biomass (Fig. 8.6b), the
+catastrophic shift takes place at a much lower nitrogen level. This is telling us that from around N =0.9–2.7, the system has two stable basins of attraction, or alternate stable states. It might be dominated either by floating plants or by submerged plants. This is often described as hysteresis, where there is more than one value of the response for each value of the predictor variable.
+
+# (b) Alter the equation for submerged plants to represent the hypothetical situation in which submerged plants get most or all of their resources from the water column. Explain your rationale, and experiment with some simulations. What would you predict regarding (i) coexistence and (ii) hysteresis? How could you test your predictions?
+dF/dt = rf*F*(n/(n+hf))*(1/(1+af*F))-lf*F
+dS/dt = rs*S*(n/(n+hs))*1-ls*S
+--> dS/dt = rs*S*(n/(n+hs))*(1/(1+0*S+0*F+0))-ls*S
+--> as=0, b=0, W=0
+
+In the above equiations for floating and submerged plants, the submerged plant equation has been adjusted such that submerged plants get all of their resources from the water column. Water column nitrogen is the only limitation on the submerged plant population. Thus, the amount of light that penetrates the water column and the shade cast by floating plants no longer limits the growth of the submerged plant population.
+
+Regarding coexsistence, I would predict that the submerged plant population would outcompete the floating plants as eutrophication increases nitrogen concentrations. This is because light is not a factor that is limiting the submerged plants, and at high nitrogen conentrations the submerged plants are not limited in growth. On the other hand, floating plant growth is limited by light at high nitrogen concentrations. At low nitrogen concentrations, floating plants are able to rely on the light resource, while submerged plants are severly impacted by the lack of their primary resource.
+
+Now regarding hysteresis, I would predict that the gradual changes in the nitrogen concentrations would result in abrut changes in plant population densities. From the simulations, it appears that small changes in nitrogen concentrations can result in a dramatic increase in the density of the submerged plant population. However, the outcome of the indirect competition for the nitrogen resource does not appear to be dependant on priority effects at intermediate nitrogen concentrations.
+
+# 8.3 (b) Notes
+dF/dt = rf*F*(n/(n+hf))*(1/(1+af*F))-lf*F
+dS/dt = rs*S*(n/(n+hs))*(1/(1+as*S+b*F+W))-ls*S
+-> As usual, r represents the maximum per capita rate of increase for F and S respectively. Thus rF is exponential growth of floating plants. This exponential growth is modified by terms for nitrogen (n) limited growth, and light limited growth. This modification results in type II functional responses. Here we discuss these modifications.
+-> Nitrogen limitation: The first factor to modify exponential growth above is n/(n+hx), water column nitrogen limitation. It varies from 0–1 and is a function of water column nitrogen concentration, n. The half saturation constant h controls the shape of the relation: when h = 0 there is no nitrogen limitation, that is, the term equals 1.0 even at very low n. If h > 0, then
+the growth rate is a Michaelis-Menten type saturating function where the fraction approaches zero as n → 0, but increases toward 1.0 (no limitation) at high nutrient levels. For submerged plants, hs = 0 because they are never limited by water column nitrogen levels because they derive most of the nitrogen from the substrate.
+-> Light limitation: The second factor to modify exponential growth is light limitation, 1/(1+aF); 1/af and 1/as are half-saturation constants — they determine the plant densities at which the growth rates are half of the maxima;
+b represents the shade cast by a single floating plant, and W represents the light intercepted by the water column.
