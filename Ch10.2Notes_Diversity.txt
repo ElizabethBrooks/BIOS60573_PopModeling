@@ -1,0 +1,22 @@
+# 10.2 Diversity
+- Here we confine ourselves entirely to a discussion of species diversity, the variety of different species present.
+- Diversity indices attempt to quantify
+• the probability of encountering different species at random, or,
+• the uncertainty or multiplicity of possible community states (i.e., the entropy of community composition), or,
+• the variance in species composition, relative to a multivariate centroid.
+- Below we list three commonly used diversity indices: species richness, Shannon-Wiener index, and Simpson’s diversity index. (pg. 293)
+--> These three indices are actually directly related to each other — they comprise estimates of entropy, the amount of disorder or the multiplicity of possible states of a system, that are directly related via a single constant [92]. However, an important consequence of their differences is that richness depends most heavily on rare species, Simpson’s depends most heavily on common species, and Shannon-Wiener stands somewhere between the two (Fig. 10.4).
+
+# Species Richness (Rs)
+- Species richness, R, the count of the number of species in a sample or area; the most widely used measure of biodiversity [82].
+
+# Shannon-Wiener (Hs)
+- Shannon-Wiener diversity. (eq. 10.4)
+--> where R is the number of species in the community, and p i is the relative abundance of species i.
+
+# Simpson's Diversity (Sd)
+- Simpson’s diversity. This index is (i) the probability that two individuals drawn from a community at random will be different species [147], (ii) the initial slope of the species-individuals curve [98] (e.g., Fig. 10.6), and (iii) the expected variance of species composition (Fig. 10.5) [97, 194]. (eq. 10.5)
+--> The summation Ri=1 p 2 i is the probability that two individuals drawn at random are the same species, and it is known as Simpson’s “dominance.” Lande found that this Simpon’s index can be more precisely estimated, or estimated accurately with smaller sample sizes, than either richness or Shannon-Wiener [97].
+- We find that the calculation given above for Simpson’s diversity returns exactly the same number. We would calculate the relative abundances, square them, add them, and subtract that value from 1.
+--> In addition to being the variance of species composition, this number is also the probability that two individuals drawn at random are different species. As we mentioned above, there are other motivations than these to derive this and other measures of species diversity, based on entropy and information theory [92] — and they are all typically correlated with each other.
+--> Fig. 10.5: Plotting three examples of species composition. The centroid of each composition is a solid black dot. The third example (on right) has zero abundances of species C. Simpson’s diversity is the variance of these points around the centroid. Individual points are not plotted at precisely 0 or 1 — they are plotted with a bit of jitter or noise so that they do not overlap entirely.

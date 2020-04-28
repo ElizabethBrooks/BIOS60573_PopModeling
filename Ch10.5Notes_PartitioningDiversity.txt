@@ -1,0 +1,16 @@
+# 10.5 Diversity Partitioning
+- We frequently refer to biodiversity (i.e., richness, Simpson’s, and Shannon-Wiener diversity) at different spatial scales as α, β, and γ diversity (Fig. 10.14).
+• Alpha diversity, α, is the diversity of a point location or of a single sample.
+• Beta diversity, β, is the diversity due to multiple localities; β diversity is sometimes thought of as turnover in species composition among sites, or alternatively as the number of species in a region that are not observed in a sample.
+• Gamma diversity, γ, is the diversity of a region, or at least the diversity of all the species in a set of samples collected over a large area (with large extent relatve to a single sample).
+- Diversity across spatial scales can be further be partitioned in one of two ways, either using additive or multiplicative partitioning.
+Additive partitioning [42, 43, 97] is represented as (10.14)
+ᾱ + β = γ
+--> where ᾱ is the average diversity of a sample, γ is typically the diversity of the
+pooled samples, and β is found by difference (β = γ − ᾱ). We can think of β as the average number of species not found in a sample, but which we know to be in the region. Additive partitioning allows direct comparison of average richness among samples at any hierarchical level of organization because all three measures of diversity (α, β, and γ) are expressed in the same units. This makes it analogous to partitioning variance in ANOVA. This is not the case for multiplicative partitioning diversity.
+- Partitioning can also be multiplicative [219], (10.15)
+ᾱβ = γ
+--> where β is a conversion factor that describes the relative change in species composition among samples. Sometimes this type of β diversity is thought of as the number of different community types in a set of samples. However, one must use this interpretation with great caution, as either meaning of β diversity depends completely on the sizes or extent of the samples used for α diversity.
+- Fig. 10.14: Hierarchical sampling of moth species richness in forest patches in Indiana
+and Ohio, USA [198]. α-diversity is the diversity of a single site (richness indicated by numbers). γ-diversity is the total number of species found in any of the samples (here γ = 230 spp.). Additive β-diversity is the difference, γ − ᾱ, or the average number of species not observed in a single sample. Diversity partitioning can be done at two levels, sites within ecoregions and ecoregions within the geographic region (see example
+in text for details).
